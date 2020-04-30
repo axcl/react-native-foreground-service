@@ -2,8 +2,8 @@ module.exports = {
     dependency: {
         platforms: {
             android: {
-                packageImportPath: 'import com.voximplant.foregroundservice.VIForegroundServicePackage;',
-                packageInstance: 'new VIForegroundServicePackage()',
+                packageImportPath: 'import com.chitbuzz.foregroundservice.ChatForegroundServicePackage;',
+                packageInstance: 'new ChatForegroundServicePackage()',
             },
         },
     },

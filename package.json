@@ -1,13 +1,12 @@
 {
-  "name": "@voximplant/react-native-foreground-service",
+  "name": "@chitbuzz/react-native-foreground-service",
   "version": "2.0.0",
   "description": "React native module to start foreground service on android",
   "main": "index.js",
   "scripts": {
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/voximplant/react-native-foreground-service.git"
+    "type": "git"
   },
   "keywords": [
     "react-native",
@@ -16,10 +15,7 @@
     "android",
     "voximplant"
   ],
-  "author": "Zingaya Inc. <info@voximplant.com> (https://voximplant.com)",
-  "license": "MIT",
-  "homepage": "https://github.com/voximplant/react-native-foreground-service",
-  "peerDependencies": {
+ "peerDependencies": {
     "react-native": ">= 0.41.2"
   }
 }

@@ -6,7 +6,7 @@
 
 import { NativeModules } from 'react-native';
 
-const ForegroundServiceModule = NativeModules.VIForegroundService;
+const ForegroundServiceModule = NativeModules.ChatForegroundService;
 
 /**
  * @property {string} channelId - Notification channel id to display notification
@@ -41,7 +41,7 @@ const NotificationChannelConfig = {
 
 };
 
-export default class VIForegroundService {
+export default class ChatForegroundService {
     /**
      * Create notification channel for foreground service
      *

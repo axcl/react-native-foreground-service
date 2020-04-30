@@ -2,7 +2,7 @@
  * Copyright (c) 2011-2019, Zingaya, Inc. All rights reserved.
  */
 
-package com.voximplant.foregroundservice;
+package com.chitbuzz.foregroundservice;
 
 import android.app.Notification;
 import android.app.Service;
@@ -10,9 +10,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 
-import static com.voximplant.foregroundservice.Constants.NOTIFICATION_CONFIG;
+import static com.chitbuzz.foregroundservice.Constants.NOTIFICATION_CONFIG;
 
-public class VIForegroundService extends Service {
+public class ChatForegroundService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {

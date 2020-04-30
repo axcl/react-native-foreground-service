@@ -2,7 +2,7 @@
  * Copyright (c) 2011-2019, Zingaya, Inc. All rights reserved.
  */
 
-package com.voximplant.foregroundservice;
+package com.chitbuzz.foregroundservice;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -17,8 +17,8 @@ import android.util.Log;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReadableMap;
 
-import static com.voximplant.foregroundservice.Constants.ERROR_ANDROID_VERSION;
-import static com.voximplant.foregroundservice.Constants.ERROR_INVALID_CONFIG;
+import static com.chitbuzz.foregroundservice.Constants.ERROR_ANDROID_VERSION;
+import static com.chitbuzz.foregroundservice.Constants.ERROR_INVALID_CONFIG;
 
 class NotificationHelper {
     private static NotificationHelper instance = null;
@@ -39,17 +39,17 @@ class NotificationHelper {
     void createNotificationChannel(ReadableMap channelConfig, Promise promise) {
         if (channelConfig == null) {
             Log.e("NotificationHelper", "createNotificationChannel: invalid config");
-            promise.reject(ERROR_INVALID_CONFIG, "VIForegroundService: Channel config is invalid");
+            promise.reject(ERROR_INVALID_CONFIG, "ChatForegroundService: Channel config is invalid");
             return;
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             if (!channelConfig.hasKey("id")) {
-                promise.reject(ERROR_INVALID_CONFIG, "VIForegroundService: Channel id is required");
+                promise.reject(ERROR_INVALID_CONFIG, "ChatForegroundService: Channel id is required");
                 return;
             }
             String channelId = channelConfig.getString("id");
             if (!channelConfig.hasKey("name")) {
-                promise.reject(ERROR_INVALID_CONFIG, "VIForegroundService: Channel name is required");
+                promise.reject(ERROR_INVALID_CONFIG, "ChatForegroundService: Channel name is required");
                 return;
             }
             String channelName = channelConfig.getString("name");
@@ -58,7 +58,7 @@ class NotificationHelper {
                     channelConfig.getInt("importance") : NotificationManager.IMPORTANCE_LOW;
             boolean enableVibration = channelConfig.hasKey("enableVibration") && channelConfig.getBoolean("enableVibration");
             if (channelId == null || channelName == null) {
-                promise.reject(ERROR_INVALID_CONFIG, "VIForegroundService: Channel id or name is not specified");
+                promise.reject(ERROR_INVALID_CONFIG, "ChatForegroundService: Channel id or name is not specified");
                 return;
             }
             NotificationChannel channel = new NotificationChannel(channelId, channelName, channelImportance);
@@ -67,7 +67,7 @@ class NotificationHelper {
             mNotificationManager.createNotificationChannel(channel);
             promise.resolve(null);
         } else {
-            promise.reject(ERROR_ANDROID_VERSION, "VIForegroundService: Notification channel can be created on Android O+");
+            promise.reject(ERROR_ANDROID_VERSION, "ChatForegroundService: Notification channel can be created on Android O+");
         }
     }
 

@@ -23,9 +23,9 @@ See [the Android official documentation](https://developer.android.com/guide/com
         ```
         <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
         ```
-    2. Add VIForegroundService as a service to the application's `AndroidManifest.xml`:
+    2. Add ChatForegroundService as a service to the application's `AndroidManifest.xml`:
         ```
-        <service android:name="com.voximplant.foregroundservice.VIForegroundService"> </service>
+        <service android:name="com.chitbuzz.foregroundservice.ChatForegroundService"> </service>
 
 - React Native <= 0.59
 
@@ -35,15 +35,15 @@ See [the Android official documentation](https://developer.android.com/guide/com
         ```
         <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
         ```
-    2. Add VIForegroundService as a service to the application's `AndroidManifest.xml`:
+    2. Add ChatForegroundService as a service to the application's `AndroidManifest.xml`:
         ```
-        <service android:name="com.voximplant.foregroundservice.VIForegroundService"> </service>
+        <service android:name="com.chitbuzz.foregroundservice.ChatForegroundService"> </service>
         ```
 
 ### Manual installation (Android only, React Native <= 0.59)
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-    - Add `import com.voximplant.foregroundservice.VIForegroundServicePackage;` to the imports at the top of the file
-    - Add `new VIForegroundServicePackage()` to the list returned by the `getPackages()` method
+    - Add `import com.chitbuzz.foregroundservice.ChatForegroundServicePackage;` to the imports at the top of the file
+    - Add `new ChatForegroundServicePackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
   	include ':@voximplant_react-native-foreground-service'
@@ -57,9 +57,9 @@ See [the Android official documentation](https://developer.android.com/guide/com
     ```
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     ```
-5. Add VIForegroundService as a service to the application's `AndroidManifest.xml`:
+5. Add ChatForegroundService as a service to the application's `AndroidManifest.xml`:
     ```
-    <service android:name="com.voximplant.foregroundservice.VIForegroundService"> </service>
+    <service android:name="com.chitbuzz.foregroundservice.ChatForegroundService"> </service>
     ```
     
 ## Demo project
@@ -69,7 +69,7 @@ Demo application: [react-native-foreground-service-demo](https://github.com/voxi
 
 ### Import module
 ```javascript
-import VIForegroundService from '@voximplant/react-native-foreground-service';
+import ChatForegroundService from '@voximplant/react-native-foreground-service';
 ```
 
 ### Create notification channel (Android 8+)
@@ -82,7 +82,7 @@ const channelConfig = {
     description: 'Channel description',
     enableVibration: false
 };
-VIForegroundService.createNotificationChannel(channelConfig);
+ChatForegroundService.createNotificationChannel(channelConfig);
 ```
 
 ### Start foreground service
@@ -96,7 +96,7 @@ async startForegroundService() {
         icon: 'ic_icon'
     };
     try {
-        await VIForegroundService.startService(notificationConfig);
+        await ChatForegroundService.startService(notificationConfig);
     } catch (e) {
         console.error(e);
     }
@@ -105,7 +105,7 @@ async startForegroundService() {
 
 ### Stop foreground service
 ```javascript
-VIForegroundService.stopService();
+ChatForegroundService.stopService();
 ```
 
 ## Reference
